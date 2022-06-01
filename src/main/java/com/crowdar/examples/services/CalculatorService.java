@@ -15,6 +15,12 @@ public class CalculatorService {
         clickear(num2);
         ActionManager.click(CalculatorConstants.EQUAL);
     }
+    public static void result(int resul){
+        Assert.assertEquals(getResult(),String.format(String.valueOf(resul)));
+    }
+    public static String getResult() {
+        return ActionManager.getText(CalculatorConstants.CALCULATOR_RESULTS).replaceAll("[a-zA-Z]+", "").trim();
+    }
     public static void clickear(String num){
         if(num.length() > 1){
             for(int i = 0; i < num.length();i++){
@@ -25,12 +31,13 @@ public class CalculatorService {
             ActionManager.click(String.format(CalculatorConstants.NUMBER, num));
         }
     }
-    public static void result(int resul){
-    	Assert.assertEquals(getResult(),String.format(String.valueOf(resul)));
+    public static void clickMplus(){
+        ActionManager.click(CalculatorConstants.MPLUS);
     }
-    
-    public static String getResult() {
-		return ActionManager.getText(CalculatorConstants.CALCULATOR_RESULTS).replaceAll("[a-zA-Z]+", "").trim();
+    public static void clickMR(){
+        ActionManager.click(CalculatorConstants.MRECORD);
     }
-
+    public static void clickRaiz(){
+        ActionManager.click(CalculatorConstants.RAIZ);
+    }
 }
