@@ -3,7 +3,9 @@ package com.crowdar.examples.steps;
 import com.crowdar.core.PageSteps;
 import com.crowdar.examples.services.CalculatorService;
 
+import com.crowdar.examples.validator.validator;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -15,7 +17,7 @@ public class CalculatorSteps extends PageSteps {
     }
 
     @Then("^El resultado es (.*)$")
-    public void elResultadoEsResultado(int resul) {
+    public void elResultadoEsResultado(String resul) {
         CalculatorService.result(resul);
     }
 
@@ -38,5 +40,10 @@ public class CalculatorSteps extends PageSteps {
     @And("Seleccionamos la funcion raiz cuadrada")
     public void seleccionamosLaFuncionRaizCuadrada() {
         CalculatorService.clickRaiz();
+    }
+
+    @Given("Estamos en la aplicacion correcta")
+    public void estamosEnLaAplicacionCorrecta() {
+        validator.verificarAppCorrecta();
     }
 }

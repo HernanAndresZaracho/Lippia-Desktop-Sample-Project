@@ -3,9 +3,10 @@ Feature: Suma de terminos que se multiplican
   QUIERO usar la funcionalidad de M+ en la calculadora estándar
   PARA sumar el producto de 3 pares de valores.
 
-  @Smoke
-    #Creo que se podria hacer de otra manera, pero quise terminarlo y que me de el resultado el mismo dia
-    #Si tienen alguna solucion mas optima, estare espectante de escucharla
+  Background:
+    Given Estamos en la aplicacion correcta
+
+  @Smoke @SumaTerminos
     Scenario Outline: Suma de terminos que se multiplican
     When <operacion> de el primer <numero1> y el segundo <numero2>
     And Guardamos el resultado

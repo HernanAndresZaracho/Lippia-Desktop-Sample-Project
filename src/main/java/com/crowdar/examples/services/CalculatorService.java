@@ -15,8 +15,8 @@ public class CalculatorService {
         clickear(num2);
         ActionManager.click(CalculatorConstants.EQUAL);
     }
-    public static void result(int resul){
-        Assert.assertEquals(getResult(),String.format(String.valueOf(resul)));
+    public static void result(String resul){
+        Assert.assertEquals(getResult(),resul);
     }
     public static String getResult() {
         return ActionManager.getText(CalculatorConstants.CALCULATOR_RESULTS).replaceAll("[a-zA-Z]+", "").trim();
